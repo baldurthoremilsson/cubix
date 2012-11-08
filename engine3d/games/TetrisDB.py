@@ -1,5 +1,5 @@
-from pysqlite2 import dbapi2 as sqlite
 import os
+import sqlite3
 
 class TetrisDB:
     def __init__(self,db):
@@ -7,7 +7,7 @@ class TetrisDB:
             if os.path.exists(db):
                 self.create = 0
                 
-            self.connection = sqlite.connect(db)
+            self.connection = sqlite3.connect(db)
             self.cursor = self.connection.cursor()
             
             if self.create:
